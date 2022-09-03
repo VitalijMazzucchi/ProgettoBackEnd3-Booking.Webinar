@@ -1,0 +1,23 @@
+Gestione Prenotazioni: (booking)
+
+Postazione
+	codice univoco
+	descrizione
+	tipo [PRIVATO, OPENSPACE, SALA RIUNIONI]
+	numero occupanti
+	edificio
+
+Edificio
+	nome
+	indirizzo 
+	citta' [enum]
+	List<Postazioni>
+
+Utente
+	username
+	nome completo
+	email
+	List<Prenotazioni>
+
+Metodi:
+	utente -> ricerca postazioni per tipo e citta'PRIVATE 
