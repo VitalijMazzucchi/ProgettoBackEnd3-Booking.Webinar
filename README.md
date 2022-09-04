@@ -28,8 +28,9 @@ Prenotazione (Booking)
     validita'
 
 Metodi:
-	utente -> ricerca postazioni per tipo e citta'PRIVATE 
+	utente -> ricerca postazioni per tipo e citta'PRIVATE , un utente non puo prenotare piu postazioni lo stesso giorno,  se la postazioni e piena non si 
+	potra prenotare.
 
-    un utente non puo prenotare piu postazioni lo stesso giorno
+    
 
-    se la postazioni e piena non si potra prenotare
+   
