@@ -7,21 +7,20 @@ import org.springframework.stereotype.Service;
 public class UserService {
 	@Autowired
 	private UserRepository ur;
-	
+
 	public void create(User u) {
-        ur.save(u);
-    }
+		ur.save(u);
+	}
 
-    public User read(Long id) {
-        return ur.findById(id).get();
-    }
+	public User read(Long id) {
+		return ur.findById(id).get();
+	}
 
-    public void update(User u) {
-        ur.save(u);
-    }
+	public void update(User u) {
+		ur.save(u);
+	}
 
-    public void delete(Long id) {
-        ur.deleteById(id);
-    }
+	public void delete(Long id) {
+		ur.deleteById(id);
+	}
 }
-

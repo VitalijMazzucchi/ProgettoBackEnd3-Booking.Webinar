@@ -12,52 +12,42 @@ import com.epicode.bookingapp.user.UserConfiguration;
 import com.epicode.bookingapp.user.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 @Component
 @Slf4j
 @AllArgsConstructor
 public class Runner implements ApplicationRunner {
 
-	
-	
-	//@Autowired
+	// @Autowired
 	BuildingConfiguration bconf;
-	
-	//@Autowired
+
+	// @Autowired
 	BuildingService bs;
-	
-	//@Autowired
+
+	// @Autowired
 	BookingConfiguration bc;
-	
-	//@Autowired
+
+	// @Autowired
 	BookingService bser;
-	
-	//@Autowired 
+
+	// @Autowired
 	UserConfiguration uc;
-	
-	//@Autowired
+
+	// @Autowired
 	UserService us;
-	
-	
-	
-	
+
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		log.info("Runner start-----------------------------------------------------");
-		
+
 		bs.create(bconf.building1());
-		
+
 		us.create(uc.newUser1());
-		
+
 		bser.create(bc.booking1());
-		
+
 		bser.create(bc.booking2());
-		
-		
-		
-		
-		
-		
-		
+
 	}
 
 }

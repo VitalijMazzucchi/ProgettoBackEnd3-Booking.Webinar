@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @RestController
 @RequestMapping("/workstation")
@@ -29,11 +30,10 @@ public class WorkstationCollector {
 		try {
 			ws.create(w);
 		} catch (Exception e) {
-		log.error("Creation failed");
-		
+			log.error("Creation failed");
+
 		}
-		
-		
+
 	}
 
 	@GetMapping("/{id}")
@@ -43,9 +43,9 @@ public class WorkstationCollector {
 		} catch (Exception e) {
 			log.error("Object  non found");
 			return new Workstation();
-			
+
 		}
-		
+
 	}
 
 	@PutMapping
@@ -55,28 +55,28 @@ public class WorkstationCollector {
 		} catch (Exception e) {
 			log.error("Update failed");
 		}
-		
+
 	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		
+
 		try {
 			ws.delete(id);
 		} catch (Exception e) {
-			log.error("Delete failed");		
-			}
+			log.error("Delete failed");
+		}
 	}
 
 	@GetMapping
-	public List<Workstation> findByCountryAndType(@RequestParam String city, @RequestParam TypeWorkstation type) {
-	 
+	public List<Workstation> findByCityAndType(@RequestParam String city, @RequestParam TypeWorkstation type) {
+
 		try {
 			return ws.findByTypeAndCity(city, type);
 		} catch (Exception e) {
 			log.error("Search failed, press ALT+F4");
 			return new ArrayList<Workstation>();
-			
+
 		}
 
 	}

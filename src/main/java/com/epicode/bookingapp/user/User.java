@@ -14,10 +14,11 @@ import com.epicode.bookingapp.booking.Booking;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name ="users" )
+@Table(name = "users")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,18 +28,13 @@ public class User {
 	private String email;
 	@OneToMany(mappedBy = "user")
 	List<Booking> bookings = new ArrayList<>();
-	
+
 	public User(String username, String nome_completo, String email) {
 		super();
 		this.username = username;
 		this.nome_completo = nome_completo;
 		this.email = email;
-	
+
 	}
-	
-	
-	
-	
-	
-	
+
 }

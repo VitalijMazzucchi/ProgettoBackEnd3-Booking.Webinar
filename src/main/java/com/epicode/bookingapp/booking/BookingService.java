@@ -20,13 +20,13 @@ public class BookingService {
 	private BookingRepository br;
 
 	public void create(Booking b) {
-		List<Booking> booking = findByUserAndValidity(b.getUser().getId(), b.getValidity());
+		int booking = findByUserAndValidity(b.getUser().getId(), b.getValidity());
 
-		if (booking == null || booking.size() == 0) {
+		if (booking == 0) {
 
-			Integer w = findWorkstationByIdAndDate(b.getWorkstation().getId(), b.getValidity()).size();
+			int bookingWorkstation = findWorkstationByIdAndDate(b.getWorkstation().getId(), b.getValidity());
 
-			if (w == null || w < b.getWorkstation().getPartecipants()) {
+			if (bookingWorkstation < b.getWorkstation().getPartecipants()) {
 				br.save(b);
 			} else {
 				log.error("the workstation is full");
@@ -49,11 +49,11 @@ public class BookingService {
 		br.deleteById(id);
 	}
 
-	public List<Booking> findByUserAndValidity(Long id, LocalDate validity) {
+	public int findByUserAndValidity(Long id, LocalDate validity) {
 		return br.findByUserAndValidity(id, validity);
 	}
 
-	public List<Booking> findWorkstationByIdAndDate(Long id, LocalDate date) {
+	public int findWorkstationByIdAndDate(Long id, LocalDate date) {
 		return br.findByWorkstationAndValidity(id, date);
 	}
 }

@@ -14,6 +14,7 @@ import com.epicode.bookingapp.workstation.Workstation;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -26,15 +27,12 @@ public class Booking {
 	private Workstation workstation;
 	@ManyToOne
 	private User user;
-	
+
 	public Booking(LocalDate validity, Workstation workstation, User user) {
 		super();
 		this.validity = validity;
 		this.workstation = workstation;
 		this.user = user;
 	}
-	
-	
-	
-	
+
 }
